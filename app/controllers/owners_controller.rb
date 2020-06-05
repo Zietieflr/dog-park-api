@@ -28,12 +28,12 @@ class OwnersController < ApplicationController
   def show
     @owner = Owner.find params[:id]
 
-    render json: { owner: @owner }
+    render json: { owner: @owner }, include: [:dogs]
   end
 
   def index
     @owners = Owner.all
 
-    render json: { owners: @owners }
+    render json: { owners: @owners }, include: [:dogs]
   end
 end
